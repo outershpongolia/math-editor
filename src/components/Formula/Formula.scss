@@ -1,12 +1,30 @@
 .formula {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
 
-    @media screen and (max-width: 850px) {
-        flex-direction: column-reverse;
-        gap: 50px;
-        align-items: center;
+    &__buttons {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+    }
+
+    &__button {
+        border: 2px solid var(--border);
+        border-radius: 8px;
+    }
+
+    &__main {
+        width: 100%;
+        margin-top: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        @media screen and (max-width: 850px) {
+            flex-direction: column-reverse;
+            gap: 50px;
+            align-items: center;
+        }
     }
 
     &__input-wrapper {
@@ -31,6 +49,21 @@
         @media screen and (max-width: 1024px) {
             padding: 24px 40px;
         }
+    }
+
+    &__error {
+        position: absolute;
+        bottom: -16px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--invalid);
+    }
+
+    &__characters {
+        position: absolute;
+        bottom: -200%;
+        left: 0;
+        padding-bottom: 40px;
     }
 
     &__wrapper {

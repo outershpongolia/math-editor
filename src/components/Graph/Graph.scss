@@ -9,16 +9,3 @@
     }
 }
 
-.axis path {
-    fill: none;
-    stroke: black;
-}
-
-.tick line {
-    opacity: 0.3;
-    z-index: -1;
-}
-
-g path.domain {
-    stroke: #4F4F4F;
-}

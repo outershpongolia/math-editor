@@ -4,17 +4,18 @@ import { MATH_CHARACTERS } from "../../constants";
 
 interface ISpecialCharactersProps {
     onClick: (x: string) => void
+    className?: string
 }
 
-export const SpecialCharacters: React.FC<ISpecialCharactersProps> = ({ onClick }) => {
+export const SpecialCharacters: React.FC<ISpecialCharactersProps> = ({ onClick, className }) => {
 
     const addCharacter = useCallback((char: string) => {
-
+        
         return () => onClick(char)
     }, [ onClick ])
 
     return (
-        <div className="special-characters">
+        <div className={`special-characters ${className}`}>
 
             {MATH_CHARACTERS.map(x => {
                 return (
