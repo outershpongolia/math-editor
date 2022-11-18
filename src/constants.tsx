@@ -10,6 +10,11 @@ export enum ERoute {
     CHEATSHEET_FORMULA = ":id"
 }
 
+export enum EInputType {
+    PLAIN_FORMULA = "plain-formula",
+    CALCULATOR = "calculator"
+}
+
 export const SOLAR_SYSTEM = [
     {
         planet: "mercury",

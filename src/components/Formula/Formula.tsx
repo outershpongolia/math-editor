@@ -1,6 +1,9 @@
-import { uniqueId } from "lodash";
+import { divide, uniqueId } from "lodash";
+import { evaluate } from "mathjs";
 import React, { useCallback, useRef, useState } from "react";
+import { EInputType } from "../../constants";
 import { IPractice } from "../../interfaces";
+import { Button } from "../Button/Button";
 import { SpecialCharacters } from "../SpecialCharacters/SpecialCharacters";
 import "./Formula.scss";
 import { FormulaInput } from "./FormulaInput/FormulaInput";
@@ -10,6 +13,8 @@ interface IFormulaProps {}
 
 export const Formula: React.FC<IFormulaProps> = () => {
     const [ formula, setFormula ] = useState<IPractice[]>([])
+    const [ inputType, setInputType ] = useState(EInputType.PLAIN_FORMULA)
+    const [ error, setError ] = useState("")
 
     const formulaInputRef = useRef<HTMLFormElement>(null)
 
@@ -20,11 +25,24 @@ export const Formula: React.FC<IFormulaProps> = () => {
         const dataValue = new FormData(target)
 
         setFormula(formula => {
-            return [...formula, {id: uniqueId(), formula: String(dataValue.get("formula"))}]
+            try {
+                setError("")
+                return [
+                    ...formula, 
+                    {
+                        id: uniqueId(), 
+                        formula: inputType === EInputType.PLAIN_FORMULA ? String(dataValue.get("formula")) : evaluate(String(dataValue.get("formula")))
+                    }
+                ]
+            } catch (error) {
+                console.error(error)
+                setError("Invalid type of expression.")
+                return formula
+            }
         })
 
         target.reset()
-    }, [ setFormula ])
+    }, [ setFormula, inputType, setError ])
 
     const clearFormulaItem = useCallback((id: string) => {
         setFormula(formula => {
@@ -44,45 +62,89 @@ export const Formula: React.FC<IFormulaProps> = () => {
             element.focus()
     }, [])
 
+    const handleChangeInputTypeToFormula = useCallback(() => {
+        setInputType(EInputType.PLAIN_FORMULA)
+        setError("")
+    }, [ setInputType, setError ])
+
+    const handleChangeInputTypeToCalculator = useCallback(() => {
+        setInputType(EInputType.CALCULATOR)
+    }, [ setInputType ])
+
     return (
         <div className="formula">
 
-            <div className="formula__input-wrapper">
-
-                <div className="formula__label">Formula input</div>
-
-                <FormulaInput 
-                    className="formula__input" 
-                    ref={formulaInputRef}
-                    name="formula" 
-                    onSubmit={handleSubmitFormula} 
+            <div className="formula__buttons">
+                <Button
+                    className="formula__button"
+                    label="Plain formula" 
+                    onClick={handleChangeInputTypeToFormula} 
+                    isDisabled={inputType === EInputType.PLAIN_FORMULA}
                 />
-
-                <SpecialCharacters onClick={addCharacterToInput} />
-                
+                <Button
+                    className="formula__button"
+                    label="Calculator" 
+                    onClick={handleChangeInputTypeToCalculator} 
+                    isDisabled={inputType === EInputType.CALCULATOR}
+                />
             </div>
 
-            <div className="formula__wrapper">
+            <div className="formula__main">
 
-                <div className="formula__label">Formula output</div>
+                <div className="formula__input-wrapper">
 
-                <div 
-                    className="formula__clear"
-                    onClick={handleClearAllFormulas}
-                >
-                    clear all
+                    <div className="formula__label">
+                        {inputType === EInputType.PLAIN_FORMULA ? "Formula input" : "Calculator"}
+                    </div>
+
+                    {inputType === EInputType.PLAIN_FORMULA
+                    ? <FormulaInput 
+                        className="formula__input" 
+                        ref={formulaInputRef}
+                        name="formula" 
+                        onSubmit={handleSubmitFormula} 
+                    />
+                    : <FormulaInput 
+                        className="formula__input" 
+                        ref={formulaInputRef}
+                        name="formula" 
+                        onSubmit={handleSubmitFormula} 
+                    />
+                    }
+
+                    {error && <div className="formula__error">{error}</div>}
+
+                    <SpecialCharacters 
+                        className="formula__characters"
+                        onClick={addCharacterToInput} 
+                    />
+                    
                 </div>
 
-                {formula.map(item => {
-                    return (
-                        <FormulaOutput 
-                            key={item.id} 
-                            id={item.id} 
-                            output={item.formula} 
-                            onClick={clearFormulaItem} 
-                        />
-                    )
-                })}
+                <div className="formula__wrapper">
+
+                    <div className="formula__label">Formula output</div>
+
+                    <div 
+                        className="formula__clear"
+                        onClick={handleClearAllFormulas}
+                    >
+                        clear all
+                    </div>
+
+                    {formula.map(item => {
+                        return (
+                            <FormulaOutput 
+                                key={item.id} 
+                                id={item.id} 
+                                output={item.formula} 
+                                onClick={clearFormulaItem} 
+                            />
+                        )
+                    })}
+
+                </div>
+
             </div>
             
         </div>

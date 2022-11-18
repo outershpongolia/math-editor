@@ -1,16 +1,16 @@
 .whiteboard {
     background-color: var(--background);
-    padding: 160px 100px;
+    padding: 110px 100px;
     background: 0;
     display: flex;
     flex-direction: column;
     gap: 50px;
 
     @media screen and (max-width: 688px) {
-        padding: 160px 80px;
+        padding: 110px 80px;
     }
 
     @media screen and (max-width: 486px) {
-        padding: 160px 40px;
+        padding: 110px 40px;
     }
 }
