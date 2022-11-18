@@ -1,0 +1,40 @@
+.header {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 100px;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+
+    @media screen and (max-width: 688px) {
+        padding: 20px 80px;
+    }
+
+    @media screen and (max-width: 486px) {
+        padding: 20px 40px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+
+        @media screen and (max-width: 486px) {
+            gap: 30px;
+        }
+    }
+
+    &__list-item {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+
+        @media screen and (max-width: 486px) {
+            font-size: 14px;
+        }
+    }
+}

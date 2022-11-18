@@ -1,0 +1,27 @@
+.formula-output {
+    font-size: 20px;
+    position: relative;
+    color: var(--characters);
+    overflow-x: auto;
+
+    &:hover {
+        color: var(--characters-light);
+    }
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.graph {
+    padding: 120px 40px 60px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & text {
+        color: #4F4F4F;
+    }
+}
+
+.axis path {
+    fill: none;
+    stroke: black;
+}
+
+.tick line {
+    opacity: 0.3;
+    z-index: -1;
+}
+
+g path.domain {
+    stroke: #4F4F4F;
+}

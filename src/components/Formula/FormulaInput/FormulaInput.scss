@@ -1,0 +1,13 @@
+.formula-input {
+    
+    &__input {
+        border: 2px solid var(--border);
+        background-color: var(--background);
+        
+        &:focus {
+            border: 2px solid var(--border);
+            outline: 0;
+            background-color: #041d27;
+        }
+    }
+}

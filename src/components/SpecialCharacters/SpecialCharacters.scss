@@ -1,0 +1,41 @@
+.special-characters {
+    position: absolute;
+    bottom: -160%;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    &__character {
+        cursor: pointer;
+        height: 48px;
+        width: 48px;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--characters-light);
+        font-size: 18px;
+        
+        & div {
+            color: var(--characters-light);
+            font-size: 24px;
+            margin-left: 5px;
+
+            & sup {
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.icon {
+    font-size: 22px;
+    color: var(--characters-light);
+
+    &_small {
+        font-size: 30px;
+    }
+}

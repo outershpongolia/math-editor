@@ -1,0 +1,49 @@
+.homepage {
+    height: 100%;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    padding: 160px 100px;
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: 688px) {
+        padding: 120px 80px;
+    }
+
+    @media screen and (max-width: 486px) {
+        padding: 120px 40px;
+    }
+
+    &__introduction {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        position: relative;
+        z-index: 111;
+    }
+
+    &__title {
+        font-size: 38px;
+        color: var(--characters-light);
+
+        @media screen and (max-width: 512px) {
+            font-size: 32px;
+        }
+
+        & span {
+            color: var(--characters-light);
+            font-weight: 600;
+        }
+    }
+
+    &__description {
+        max-width: 800px;
+        font-size: 16px;
+
+        @media screen and (max-width: 512px) {
+            font-size: 14px;
+        }
+    }
+
+}

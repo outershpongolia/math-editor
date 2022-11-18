@@ -1,0 +1,18 @@
+.solar-system {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    &__line {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+
+    &__planet {
+        border-radius: 50%;
+        position: absolute;
+    }
+}

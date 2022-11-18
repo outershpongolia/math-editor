@@ -1,0 +1,13 @@
+.button {
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: var(--background);
+    border: 0;
+    padding: 10px;
+
+    &:focus {
+        outline: 0;
+        border: 2px solid rgb(231, 219, 45);
+        background-color: var(--input);
+    }
+}

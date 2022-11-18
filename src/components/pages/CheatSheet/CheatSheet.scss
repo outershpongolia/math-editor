@@ -1,0 +1,36 @@
+.cheatsheet {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px;
+
+    &__static {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__section {
+
+        &_left {
+            width: 48%;
+
+            @media screen and (max-width: 1192px) {
+                width: 46%;
+            }
+        }
+
+        &_right {
+            width: 50%;
+
+            @media screen and (max-width: 1192px) {
+                width: 53%;
+            }
+        }
+    }
+
+    &__dynamic {
+        width: 100%;
+        height: 300px;
+        border: 1px solid;
+    }
+}
