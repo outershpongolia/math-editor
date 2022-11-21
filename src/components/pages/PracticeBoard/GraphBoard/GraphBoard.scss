@@ -1,0 +1,57 @@
+.graph-board {
+    padding: 120px 40px 60px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    &__specifics-wrapper {
+        width: 40%;
+        border: 1px solid var(--border);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    &__specifics {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        position: relative;
+    }
+
+    &__input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+    }
+
+    &__label {
+        text-transform: uppercase;
+        font-size: 14px;
+        position: absolute;
+        top: -18px;
+        left: 8px;
+    }
+
+    &__input {
+        max-width: 140px;
+        background-color: var(--background);
+        text-align: center;
+    }
+
+    &__manual {
+        font-size: 10px;
+        color: var(--light-blue);
+
+        & i {
+            color: var(--light-blue);
+        }
+    }
+
+    &__button {
+        width: 130px;
+    }
+}
+

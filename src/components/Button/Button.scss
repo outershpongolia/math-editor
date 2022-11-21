@@ -4,12 +4,8 @@
     background-color: var(--background);
     border: 0;
     padding: 10px 16px;
-
-    // &:focus {
-    //     outline: 0;
-    //     border: 2px solid rgb(231, 219, 45);
-    //     background-color: var(--input);
-    // }
+    border: 2px solid var(--border);
+    border-radius: 8px;
     
     &:disabled {
         pointer-events: none;

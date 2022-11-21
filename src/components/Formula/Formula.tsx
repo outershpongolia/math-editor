@@ -1,4 +1,4 @@
-import { divide, uniqueId } from "lodash";
+import { uniqueId } from "lodash";
 import { evaluate } from "mathjs";
 import React, { useCallback, useRef, useState } from "react";
 import { EInputType } from "../../constants";
@@ -31,7 +31,9 @@ export const Formula: React.FC<IFormulaProps> = () => {
                     ...formula, 
                     {
                         id: uniqueId(), 
-                        formula: inputType === EInputType.PLAIN_FORMULA ? String(dataValue.get("formula")) : evaluate(String(dataValue.get("formula")))
+                        formula: inputType === EInputType.PLAIN_FORMULA 
+                            ? String(dataValue.get("formula")) 
+                            : evaluate(String(dataValue.get("formula")))["value"] || evaluate(String(dataValue.get("formula")))
                     }
                 ]
             } catch (error) {
@@ -76,13 +78,11 @@ export const Formula: React.FC<IFormulaProps> = () => {
 
             <div className="formula__buttons">
                 <Button
-                    className="formula__button"
                     label="Plain formula" 
                     onClick={handleChangeInputTypeToFormula} 
                     isDisabled={inputType === EInputType.PLAIN_FORMULA}
                 />
                 <Button
-                    className="formula__button"
                     label="Calculator" 
                     onClick={handleChangeInputTypeToCalculator} 
                     isDisabled={inputType === EInputType.CALCULATOR}
@@ -112,7 +112,7 @@ export const Formula: React.FC<IFormulaProps> = () => {
                     />
                     }
 
-                    {error && <div className="formula__error">{error}</div>}
+                    {error && <div className="formula__error error">{error}</div>}
 
                     <SpecialCharacters 
                         className="formula__characters"

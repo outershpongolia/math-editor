@@ -1,8 +1,8 @@
 import React from "react";
-import { Sections } from "./Sections/Sections";
 import "./CheatSheet.scss";
-import { Formulas } from "./Formulas/Formulas";
-import { Outlet } from "react-router-dom";
+// import { Sections } from "./Sections/Sections";
+// import { Formulas } from "./Formulas/Formulas";
+// import { Outlet } from "react-router-dom";
 
 interface ICheatSheetProps {}
 
