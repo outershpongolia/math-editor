@@ -6,6 +6,7 @@
   --border: #124559;
   --disabled: #495057;
   --invalid: rgb(180, 11, 11);
+  --light-blue: #598392;
 }
 
 body {
@@ -30,4 +31,12 @@ body {
 main {
   width: 100%;
   height: 100%;
+}
+
+.error {
+  position: absolute;
+  bottom: -16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--invalid);
 }

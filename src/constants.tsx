@@ -1,5 +1,6 @@
 import { TbMath } from "react-icons/tb";
 import { CgMathPlus, CgMathMinus, CgMathDivide, CgMathEqual } from "react-icons/cg";
+import { IAxis, IDataType } from "./interfaces";
 
 export enum ERoute {
     HOMEPAGE = "/",
@@ -115,6 +116,26 @@ export const MATH_CHARACTERS = [
         icon: "tn"
     }
 ]
+
+export const DEFAULT_DATA: IDataType[] = [
+    {
+        x: 0,
+        y: 0
+    }
+]
+
+export const DEFAULT_AXIS: IAxis = {
+    xAxis: {
+        value: "",
+        name: "x-axis",
+        title: "x axis"
+    },
+    yAxis: {
+        value: "",
+        name: "y-axis",
+        title: "y axis"
+    }
+}
 
 export const SECTIONS = [
     {

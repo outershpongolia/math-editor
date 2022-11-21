@@ -1,12 +1,11 @@
 .input {
-    width: 400px;
-    padding: 10px 16px;
+    padding: 12px 18px;
     font-size: 16px;
-    border: 2px solid rgba(96, 54, 131, 0.801);
+    border: 2px solid var(--border);
     border-radius: 14px;
 
     &:focus {
-        border: 2px solid rgb(96, 54, 131);
+        border: 2px solid var(--border);
         outline: 0;
     }
 }

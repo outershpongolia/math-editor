@@ -1,11 +1,12 @@
 .graph {
-    padding: 120px 40px 60px 40px;
+    width: 600px;
+    height: auto;
+    background-color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    & text {
-        color: #4F4F4F;
-    }
+    padding: 40px;
 }
 
+#chart {
+    width: 100%;
+}

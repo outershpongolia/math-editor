@@ -1,4 +1,3 @@
-import { local } from "d3";
 import React, { useCallback, useState } from "react";
 import { DEFAULT_FORMULA } from "../../../../constants";
 import { IFormula } from "../../../../interfaces";
@@ -36,7 +35,6 @@ export const Formulas: React.FC<IFormulasProps> = ({ className }) => {
             return {...formula, name: e.target.value}
         })
     }, [ setFormula ])
-
 
     const handleAddFormulaDescription = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setFormula(formula => {
