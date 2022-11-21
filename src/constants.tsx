@@ -1,6 +1,6 @@
 import { TbMath } from "react-icons/tb";
 import { CgMathPlus, CgMathMinus, CgMathDivide, CgMathEqual } from "react-icons/cg";
-import { IAxis, IDataType } from "./interfaces";
+import { IAxis, IAxisLabel, IDataType } from "./interfaces";
 
 export enum ERoute {
     HOMEPAGE = "/",
@@ -134,7 +134,22 @@ export const DEFAULT_AXIS: IAxis = {
         value: "",
         name: "y-axis",
         title: "y axis"
+    },
+    xLabel: {
+        value: "",
+        name: "x-label",
+        title: "x label"
+    },
+    yLabel: {
+        value: "",
+        name: "y-label",
+        title: "y label"
     }
+}
+
+export const DEFAULT_LABEL: IAxisLabel = {
+    xAxisLabel: "",
+    yAxisLabel: ""
 }
 
 export const SECTIONS = [

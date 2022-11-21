@@ -1,5 +1,3 @@
-import { Unit } from "mathjs"
-
 export interface IFormula {
     name: string
     formula: string
@@ -12,17 +10,24 @@ export interface IPractice {
 }
 
 export interface IDataType {
-    x: number,
+    x: number
     y: number
 }
 
 export interface IAxisType {
-    value: string,
-    name: string,
+    value: string
+    name: "x-axis" | "y-axis" | "x-label" | "y-label"
     title: string
 }
 
 export interface IAxis {
-    xAxis: IAxisType,
+    xAxis: IAxisType
     yAxis: IAxisType
+    xLabel: IAxisType
+    yLabel: IAxisType
+}
+
+export interface IAxisLabel {
+    xAxisLabel: string
+    yAxisLabel: string
 }

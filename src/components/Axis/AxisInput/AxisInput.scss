@@ -1,0 +1,27 @@
+.axis-input {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+
+    &__label {
+        text-transform: uppercase;
+        font-size: 14px;
+        position: absolute;
+        top: -18px;
+        left: 8px;
+    }
+
+    &__input {
+        max-width: 160px;
+        background-color: var(--background);
+        text-align: center;
+    }
+
+    &__manual {
+
+        & i {
+            color: var(--light-blue);
+        }
+    }
+}
