@@ -7,6 +7,10 @@ import { IDataType } from "../../interfaces";
 
 interface IGraphProps {
     data: IDataType[]
+    label: {
+        xAxisLabel: string, 
+        yAxisLabel: string
+    }
 }
 
 const grid = {
@@ -18,7 +22,7 @@ const grid = {
 
 ReactChart.register(LinearScale)
 
-export const Graph: React.FC<IGraphProps> = React.memo(({ data }) => {
+export const Graph: React.FC<IGraphProps> = React.memo(({ data, label }) => {
 
     return (
         <div className="graph">
@@ -44,7 +48,7 @@ export const Graph: React.FC<IGraphProps> = React.memo(({ data }) => {
                             grid: grid,
                             title: {
                                 display: true,
-                                text: "x"
+                                text: label.xAxisLabel || "x"
                             }
                         },
                         y: {
@@ -52,7 +56,7 @@ export const Graph: React.FC<IGraphProps> = React.memo(({ data }) => {
                             grid: grid,
                             title: {
                                 display: true,
-                                text: "y"
+                                text: label.yAxisLabel || "y"
                             },
                             ticks: {
                                 stepSize: 1
