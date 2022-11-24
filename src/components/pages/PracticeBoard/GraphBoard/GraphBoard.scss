@@ -6,28 +6,40 @@
 
     &__wrapper {
         width: 40%;
-        border: 1px solid var(--border);
         padding: 40px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 20px;
+    }
+
+    &__options {
+        display: flex;
+        margin-bottom: 20px;
+        border: 2px solid #12455980;
+        width: 100%;
+        border-radius: 14px;
+        position: relative;
     }
 
     &__specifics-wrapper {
         display: flex;
         flex-direction: column;
         gap: 34px;
+        width: 100%;
     }
 
     &__specifics {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
         gap: 32px;
         position: relative;
     }
 
     &__button {
         width: 130px;
+        margin: 0 auto;
     }
 }
 

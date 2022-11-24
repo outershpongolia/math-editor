@@ -1,28 +1,36 @@
 import React from "react";
 import "./Graph.scss";
-import { LinearScale } from 'chart.js/auto';
+import { LinearScale, ScaleOptions } from 'chart.js/auto';
 import { ReactChart } from 'chartjs-react';
-import { createLabel } from "../../utils";
-import { IDataType } from "../../interfaces";
+import { IAxisLabel, IDataType } from "../../interfaces";
 
 interface IGraphProps {
     data: IDataType[]
-    label: {
-        xAxisLabel: string, 
-        yAxisLabel: string
-    }
+    label: IAxisLabel
+    isArea: boolean
 }
 
-const grid = {
-    color: "#495057",
-    lineWidth: 0.1,
-    tickWidth: 1,
-    tickLength: 5
+const colorStyleBlue = "#124559"
+
+const axisScales: ScaleOptions = {
+    type: "linear",
+    beginAtZero: true,
+    ticks: {stepSize: 1},
+    grid: {
+        color: "#495057",
+        lineWidth: 0.1,
+        tickWidth: 1,
+        tickLength: 5
+    },
+    title: {
+        display: true,
+        font: {size: 16}
+    }
 }
 
 ReactChart.register(LinearScale)
 
-export const Graph: React.FC<IGraphProps> = React.memo(({ data, label }) => {
+export const Graph: React.FC<IGraphProps> = React.memo(({ data, label, isArea }) => {
 
     return (
         <div className="graph">
@@ -32,7 +40,6 @@ export const Graph: React.FC<IGraphProps> = React.memo(({ data, label }) => {
                 type="line"
                 height={400}
                 data={{
-                    labels: createLabel(data, "x"),
                     datasets: [{
                         label: "f(x)",
                         data: data,
@@ -45,23 +52,32 @@ export const Graph: React.FC<IGraphProps> = React.memo(({ data, label }) => {
                 options={{
                     scales: {
                         x: {
-                            grid: grid,
+                            ...axisScales,
                             title: {
-                                display: true,
+                                ...axisScales.title,
                                 text: label.xAxisLabel || "x"
                             }
                         },
                         y: {
-                            beginAtZero: true,
-                            grid: grid,
+                            ...axisScales,
                             title: {
-                                display: true,
+                                ...axisScales.title,
                                 text: label.yAxisLabel || "y"
-                            },
-                            ticks: {
-                                stepSize: 1
-                            },
+                            }
                         },
+                    },
+                    elements: {
+                        line: {
+                            borderColor: "#598392", 
+                            borderWidth: 2,
+                            fill: isArea 
+                                ? {
+                                    target: "origin",
+                                    above: "rgb(18, 69, 89, 0.2)"
+                                }
+                                : "none"
+                        },
+                        point: {backgroundColor: colorStyleBlue}
                     },
                     plugins: {
                         legend: {

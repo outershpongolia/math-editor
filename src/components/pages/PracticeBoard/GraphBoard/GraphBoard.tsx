@@ -1,10 +1,11 @@
+import { uniqueId } from "lodash";
 import React, { useCallback, useState } from "react";
-import { DEFAULT_AXIS, DEFAULT_DATA, DEFAULT_LABEL } from "../../../../constants";
-import { IAxis, IAxisLabel, IDataType } from "../../../../interfaces";
+import { DEFAULT_AXIS, DEFAULT_DATA, DEFAULT_LABEL, GRAPH_TYPES } from "../../../../constants";
+import { IAxis, IAxisLabel, IDataType, IGraphType, TGraphType } from "../../../../interfaces";
 import { AxisInput } from "../../../Axis/AxisInput/AxisInput";
 import { Button } from "../../../Button/Button";
 import { Graph } from "../../../Graph/Graph";
-import { Input } from "../../../Input/Input";
+import { TypeOption } from "../../../TypeOption/TypeOption";
 import "./GraphBoard.scss";
 
 interface IGraphBoardProps {}
@@ -12,8 +13,9 @@ interface IGraphBoardProps {}
 export const GraphBoard: React.FC<IGraphBoardProps> = () => {
     const [ axis, setAxis ] = useState<IAxis>(DEFAULT_AXIS) 
     const [ dynamicData, setDynamicData ] = useState<IDataType[]>(DEFAULT_DATA)
-    const [ error, setError] = useState(false)
     const [ dynamicLabel, setDynamicLabel ] = useState<IAxisLabel>(DEFAULT_LABEL)
+    const [ error, setError] = useState(false)
+    const [ graphType, setGraphType ] = useState<IGraphType>({ type: "line"})
 
     const handleAddAxis = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const inputName = e.target.name
@@ -24,18 +26,17 @@ export const GraphBoard: React.FC<IGraphBoardProps> = () => {
         if (
             (inputName !== axis.xLabel.name && inputName !== axis.yLabel.name)
             && inputValue.length !== 0 
-            && !((code > 47 && code < 58) || code === 44)
+            && !((code > 47 && code < 58) || code === 44 || code === 46)
         ) {
             return
         }
 
-
         setAxis(axis => {
             return {
+                xLabel: inputName === axis.xLabel.name ? {...axis.xLabel, value: inputValue} : axis.xLabel,
+                yLabel: inputName === axis.yLabel.name ? {...axis.yLabel, value: inputValue} : axis.yLabel,
                 xAxis: inputName === axis.xAxis.name ? {...axis.xAxis, value: inputValue} : axis.xAxis,
                 yAxis: inputName === axis.yAxis.name ? {...axis.yAxis, value: inputValue} : axis.yAxis,
-                xLabel: inputName === axis.xLabel.name ? {...axis.xLabel, value: inputValue} : axis.xLabel,
-                yLabel: inputName === axis.yLabel.name ? {...axis.yLabel, value: inputValue} : axis.yLabel
             }
         })
     }, [ setAxis, axis.xLabel, axis.yLabel ])
@@ -45,8 +46,13 @@ export const GraphBoard: React.FC<IGraphBoardProps> = () => {
 
         setDynamicData(dynamicData => {
             if (axis.xAxis && axis.yAxis) {
-                const xAxisArray = axis.xAxis.value.split(",").map(n => parseInt(n)).filter(i => !Number.isNaN(i))
-                const yAxisArray = axis.yAxis.value.split(",").map(n => parseInt(n)).filter(i => !Number.isNaN(i))
+                const xAxisArray = axis.xAxis.value.split(",")
+                                                    .map(n => parseFloat(n))
+                                                    .filter(i => !Number.isNaN(i))
+
+                const yAxisArray = axis.yAxis.value.split(",")
+                                                    .map(n => parseFloat(n))
+                                                    .filter(i => !Number.isNaN(i))
 
                 if (xAxisArray.length !== yAxisArray.length) {
                     setError(true)
@@ -75,24 +81,46 @@ export const GraphBoard: React.FC<IGraphBoardProps> = () => {
             }
         })
     }, [ setDynamicData, axis, setError, setDynamicLabel ])
+
+    const handleChangeGraphType = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+        const type = e.currentTarget.textContent as unknown as TGraphType
+
+        setGraphType({ type })
+    }, [ setGraphType ])
+
+    console.log({axis})
     
     return (
         <div className="graph-board">   
             <Graph 
                 data={dynamicData}
                 label={dynamicLabel}
+                isArea={graphType.type === "area"}
             />
 
             <div className="graph-board__wrapper">
+                <div className="graph-board__options">
+                    {GRAPH_TYPES.map(x => {
+                        return (
+                            <TypeOption 
+                                key={x.type}
+                                type={x.type}
+                                isActive={graphType.type === x.type}
+                                onClick={handleChangeGraphType}
+                            />
+                        )
+                    })}
+                </div>
+
                 <div className="graph-board__specifics-wrapper">
                     <div className="graph-board__specifics">
-                        {Object.entries(axis).map(item => {
+                        {Object.values(axis).map(item => {
                             return (
                                 <AxisInput 
-                                    key={item[1].name}
-                                    name={item[1].name}
-                                    title={item[1].title}
-                                    value={item[1].value}
+                                    key={item.name}
+                                    name={item.name}
+                                    title={item.title}
+                                    value={item.value}
                                     onChange={handleAddAxis}
                                 />
                             )
