@@ -1,0 +1,35 @@
+.type-option {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 18px;
+    width: 50%;
+    padding: 10px 40px;
+    text-align: center;
+
+    &_active {
+        border: 2px solid var(--border);
+        height: calc(100% + 4px);
+        margin-top: -2px;
+        color: var(--light-blue);
+        font-weight: 500;
+    }
+
+    &_line {
+
+        &.type-option_active {
+            width: calc(50% + 2px);
+            margin-left: -2px;
+            border-radius: 14px 0 0 14px;
+        }
+    }
+
+    &_area {
+
+        &.type-option_active {
+            width: calc(50% + 6px);
+            margin-right: -2px;
+            border-radius: 0 14px 14px 0;
+        }
+    }
+}
+

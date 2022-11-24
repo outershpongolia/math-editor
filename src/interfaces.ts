@@ -1,3 +1,5 @@
+import { type } from "os"
+
 export interface IFormula {
     name: string
     formula: string
@@ -30,4 +32,10 @@ export interface IAxis {
 export interface IAxisLabel {
     xAxisLabel: string
     yAxisLabel: string
+}
+
+export type TGraphType = "line" | "area"
+
+export interface IGraphType {
+    type: TGraphType
 }
