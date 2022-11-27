@@ -1,41 +1,37 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { ERoute } from "../../constants";
+import React, { useCallback, useState } from "react";
+import { MenuList } from "../MenuList/MenuList";
 import "./Header.scss";
+import { Atom } from "../Animations/Atom/Atom";
 
 interface IHeaderProps {}
 
 export const Header: React.FC<IHeaderProps> = () => {
+    const [ isMenuOpened, setIsMenuOpened ] = useState(false)
     
-    const location = useLocation()
+    const smallScreen = window.matchMedia("(max-width: 600px)")
+
+    const handleToggleMenu = useCallback(() => {
+        setIsMenuOpened(isMenuOpened => !isMenuOpened)
+    }, [ setIsMenuOpened ])
 
     return (
         <div className="header">
-            <div className="header__list">
-
-                {location.pathname !== "/" && 
-                    <NavLink 
-                        className="header__list-item" 
-                        to={ERoute.HOMEPAGE}
-                    >
-                        Home
-                    </NavLink>
-                }
-
-                <NavLink 
-                    className="header__list-item" 
-                    to={ERoute.PRACTICE_BOARD}
-                >
-                    Practice board
-                </NavLink>
-                <NavLink 
-                    className="header__list-item" 
-                    to={ERoute.CHEATSHEET}
-                >
-                    Cheatsheet
-                </NavLink>
-
+            {smallScreen.matches
+            ? <div 
+                className="header__menu"
+                onClick={handleToggleMenu}
+            >
+                <Atom />
+                Menu
             </div>
+            : <MenuList />
+            }
+
+            {isMenuOpened
+            && <div className="header__menu-opened">
+                <MenuList onClick={handleToggleMenu} />
+            </div>
+            }
         </div>
     )
 }

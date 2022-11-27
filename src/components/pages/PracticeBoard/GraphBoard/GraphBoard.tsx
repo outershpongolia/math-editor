@@ -1,7 +1,7 @@
-import { uniqueId } from "lodash";
 import React, { useCallback, useState } from "react";
 import { DEFAULT_AXIS, DEFAULT_DATA, DEFAULT_LABEL, GRAPH_TYPES } from "../../../../constants";
 import { IAxis, IAxisLabel, IDataType, IGraphType, TGraphType } from "../../../../interfaces";
+import { addElementToAxis, convertStringToFloat } from "../../../../utils";
 import { AxisInput } from "../../../Axis/AxisInput/AxisInput";
 import { Button } from "../../../Button/Button";
 import { Graph } from "../../../Graph/Graph";
@@ -33,10 +33,10 @@ export const GraphBoard: React.FC<IGraphBoardProps> = () => {
 
         setAxis(axis => {
             return {
-                xLabel: inputName === axis.xLabel.name ? {...axis.xLabel, value: inputValue} : axis.xLabel,
-                yLabel: inputName === axis.yLabel.name ? {...axis.yLabel, value: inputValue} : axis.yLabel,
-                xAxis: inputName === axis.xAxis.name ? {...axis.xAxis, value: inputValue} : axis.xAxis,
-                yAxis: inputName === axis.yAxis.name ? {...axis.yAxis, value: inputValue} : axis.yAxis,
+                xLabel: addElementToAxis(inputName, inputValue, axis.xLabel),
+                yLabel: addElementToAxis(inputName, inputValue, axis.yLabel),
+                xAxis: addElementToAxis(inputName, inputValue, axis.xAxis),
+                yAxis: addElementToAxis(inputName, inputValue, axis.yAxis),
             }
         })
     }, [ setAxis, axis.xLabel, axis.yLabel ])
@@ -46,22 +46,17 @@ export const GraphBoard: React.FC<IGraphBoardProps> = () => {
 
         setDynamicData(dynamicData => {
             if (axis.xAxis && axis.yAxis) {
-                const xAxisArray = axis.xAxis.value.split(",")
-                                                    .map(n => parseFloat(n))
-                                                    .filter(i => !Number.isNaN(i))
-
-                const yAxisArray = axis.yAxis.value.split(",")
-                                                    .map(n => parseFloat(n))
-                                                    .filter(i => !Number.isNaN(i))
+                const xAxisArray = convertStringToFloat(axis.xAxis.value)
+                const yAxisArray = convertStringToFloat(axis.yAxis.value)
 
                 if (xAxisArray.length !== yAxisArray.length) {
                     setError(true)
                     return dynamicData
                 }
 
-                return xAxisArray.map((n, index) => {
+                return xAxisArray.map((number, index) => {
                     return {
-                        x: n, 
+                        x: number, 
                         y: yAxisArray[index]
                     }
                 }) 
