@@ -1,0 +1,45 @@
+<svg
+   id="svgIcon"
+   width="30.000008mm"
+   height="22.628578mm"
+   viewBox="0 0 30.000008 22.628578"
+   version="1.1">
+  <!-- <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop" />
+    </linearGradient>
+  </defs> -->
+  <g
+     id="layer1"
+     transform="translate(-89.082834,-120.21428)">
+    <rect
+       id="rect1"
+       style="fill:#000000;stroke-width:1"
+       width="29.982853"
+       height="5.0914288"
+       x="89.08284"
+       y="128.98285"
+       ry="2.5457144" />
+    <rect
+       id="rect2"
+       style="fill:#000000;fill-opacity:1;stroke-width:1;stroke-dasharray:none"
+       width="29.982853"
+       height="5.0914288"
+       x="89.099991"
+       y="120.21429"
+       ry="2.5457144" />
+    <rect
+       id="rect3"
+       style="display:inline;fill:#000000;stroke-width:1"
+       width="29.982853"
+       height="5.0914288"
+       x="89.099998"
+       y="137.75143"
+       ry="2.3001173" />
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg
+   id="svgAtom"
+   width="131.5103mm"
+   height="131.51028mm"
+   viewBox="0 0 131.5103 131.51028"
+   version="1.1"
+>
+   <g
+      id="layer"
+      transform="translate(-54.74199,-107.91914)"
+   >
+      <ellipse
+         style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         id="path118"
+         cx="120.49714"
+         cy="172.54286"
+         rx="65.622856"
+         ry="13.577143"
+      />
+      <ellipse
+         style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         id="path118-7"
+         cx="33.079018"
+         cy="-206.89903"
+         rx="65.622856"
+         ry="13.577143"
+         transform="rotate(135.81035)"
+      />
+      <ellipse
+         style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         id="path118-3"
+         cx="173.67429"
+         cy="-121.62856"
+         rx="65.622856"
+         ry="13.577143"
+         transform="rotate(90)"
+      />
+      <ellipse
+         style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         id="path118-3-8"
+         cx="-207.33965"
+         cy="-39.684017"
+         rx="65.622856"
+         ry="13.577143"
+         transform="rotate(-136.01586)"
+      />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-opacity:1"
+         id="path1854"
+         d="m 117.44427,166.74663 a 7.6371427,7.0714288 0 0 1 10.4636,2.46156 7.6371427,7.0714288 0 0 1 -2.64975,9.69057 7.6371427,7.0714288 0 0 1 -10.46802,-2.44538 7.6371427,7.0714288 0 0 1 2.63227,-9.69466 l 3.92335,6.06699 z"
+      />
+   </g>
+</svg>
