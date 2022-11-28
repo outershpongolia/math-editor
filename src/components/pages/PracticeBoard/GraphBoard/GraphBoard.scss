@@ -4,6 +4,12 @@
     justify-content: center;
     gap: 40px;
 
+    @media screen and (max-width: 1008px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 0;
+    }
+
     &__wrapper {
         width: 40%;
         padding: 40px;
@@ -11,6 +17,18 @@
         flex-direction: column;
         align-items: center;
         gap: 20px;
+
+        @media screen and (max-width: 1176px) {
+            padding: 0 0 40px 0;
+        }
+
+        @media screen and (max-width: 1008px) {
+            width: 400px;
+        }
+
+        @media screen and (max-width: 488px) {
+            width: 100%;
+        }
     }
 
     &__options {
@@ -20,6 +38,10 @@
         width: 100%;
         border-radius: 14px;
         position: relative;
+
+        @media screen and (max-width: 1008px) {
+            height: 40px;
+        }
     }
 
     &__specifics-wrapper {
@@ -35,6 +57,12 @@
         justify-content: center;
         gap: 32px;
         position: relative;
+
+        @media screen and (max-width: 424px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     &__button {

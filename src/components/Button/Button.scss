@@ -11,4 +11,9 @@
         pointer-events: none;
         color: var(--disabled);
     }
+
+    &:focus {
+        border: 2px solid var(--border);
+        outline: 0;
+    }
 }

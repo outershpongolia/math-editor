@@ -46,19 +46,16 @@
         }
     }
 
-    // &__error {
-    //     position: absolute;
-    //     bottom: -16px;
-    //     font-size: 12px;
-    //     font-weight: 500;
-    //     color: var(--invalid);
-    // }
-
     &__characters {
         position: absolute;
         bottom: -200%;
         left: 0;
         padding-bottom: 40px;
+
+        @media screen and (max-width: 1024px) {
+            top: 120%;
+            bottom: none;
+        }
     }
 
     &__wrapper {
