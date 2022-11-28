@@ -14,7 +14,7 @@ export const Atom: React.FC<IAtomProps> = () => {
             targets: ".atom ellipse",
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: 'easeInOutQuad',
-            duration: 1500,
+            duration: 1000,
             delay: anime.stagger(250, {from: "last"}),
             direction: 'alternate',
             loop: true
@@ -35,7 +35,7 @@ export const Atom: React.FC<IAtomProps> = () => {
                 transform="translate(-54.74199,-107.91914)"
             >
                 <ellipse
-                    id="path118"
+                    id="ellipse1"
                     cx="120.49714"
                     cy="172.54286"
                     rx="65.622856"
@@ -45,7 +45,7 @@ export const Atom: React.FC<IAtomProps> = () => {
                     strokeWidth={2}
                 />
                 <ellipse
-                    id="path118-7"
+                    id="ellipse2"
                     cx="33.079018"
                     cy="-206.89903"
                     rx="65.622856"
@@ -56,7 +56,7 @@ export const Atom: React.FC<IAtomProps> = () => {
                     strokeWidth={2}
                 />
                 <ellipse
-                    id="path118-3"
+                    id="ellipse3"
                     cx="173.67429"
                     cy="-121.62856"
                     rx="65.622856"
@@ -67,7 +67,7 @@ export const Atom: React.FC<IAtomProps> = () => {
                     strokeWidth={2}
                 />
                 <ellipse
-                    id="path118-3-8"
+                    id="ellipse4"
                     cx="-207.33965"
                     cy="-39.684017"
                     rx="65.622856"

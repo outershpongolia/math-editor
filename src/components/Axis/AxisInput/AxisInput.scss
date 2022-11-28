@@ -4,12 +4,21 @@
     align-items: center;
     position: relative;
 
+    @media screen and (max-width: 424px) {
+        width: 240px;
+    }
+
     &__label {
         text-transform: uppercase;
         font-size: 14px;
         position: absolute;
         top: -18px;
         left: 8px;
+
+        @media screen and (max-width: 1008px) {
+            font-size: 12px;
+            top: -16px;
+        }
     }
 
     &__input {
