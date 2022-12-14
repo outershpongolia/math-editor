@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from "react";
-import { DEFAULT_FORMULA } from "../../../../constants";
-import { IFormula } from "../../../../interfaces";
-import { Button } from "../../../Button/Button";
-import { FormulaInput } from "../../../Formula/FormulaInput/FormulaInput";
-import { Input } from "../../../Input/Input";
+import { DEFAULT_FORMULA } from "../../../constants";
+import { IFormula } from "../../../interfaces";
 import "./Formulas.scss";
 import { MdClose } from "react-icons/md";
+
+// Components
+import { Button } from "../../../components/Button/Button";
+import { Input } from "../../../components/Input/Input";
+import { FormulaInput } from "../../../components/Formula/FormulaInput/FormulaInput";
 
 interface IFormulasProps {
     className?: string

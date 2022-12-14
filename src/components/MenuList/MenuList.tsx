@@ -1,7 +1,10 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ERoute } from "../../constants";
 import "./MenuList.scss";
+
+// Components
+import { Link } from "../Link/Link";
 
 interface IMenuListProps {
     onClick?: () => void
@@ -14,29 +17,30 @@ export const MenuList: React.FC<IMenuListProps> = ({ onClick }) => {
     return (
         <div className="menu-list">
             {location.pathname !== "/" && 
-                <NavLink 
-                    className="menu-list__item" 
-                    to={ERoute.HOMEPAGE}
+                <Link
+                    className="menu-list__item"
+                    route={ERoute.HOMEPAGE}
                     onClick={onClick}
                 >
                     Home
-                </NavLink>
+                </Link>
             }
 
-            <NavLink 
-                className="menu-list__item" 
-                to={ERoute.PRACTICE_BOARD}
+            <Link
+                className="menu-list__item"
+                route={ERoute.PRACTICE_BOARD}
                 onClick={onClick}
             >
                 Practice board
-            </NavLink>
-            <NavLink 
-                className="menu-list__item" 
-                to={ERoute.CHEATSHEET}
+            </Link>
+
+            <Link
+                className="menu-list__item"
+                route={ERoute.CHEATSHEET}
                 onClick={onClick}
             >
                 Cheatsheet
-            </NavLink>
+            </Link>
         </div>
     )
 }

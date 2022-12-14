@@ -1,6 +1,8 @@
 import React from "react";
-import { Formula } from "../../../Formula/Formula";
 import "./Whiteboard.scss";
+
+// Components
+import { Formula } from "../../../components/Formula/Formula";
 
 interface IWhiteboardProps {}
 

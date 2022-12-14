@@ -1,4 +1,5 @@
 import { type } from "os"
+import React from "react"
 
 export interface IFormula {
     name: string
@@ -38,4 +39,8 @@ export type TGraphType = "line" | "area"
 
 export interface IGraphType {
     type: TGraphType
+}
+
+export interface IIcon {
+    className: string
 }

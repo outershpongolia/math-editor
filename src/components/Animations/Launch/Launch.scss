@@ -1,0 +1,22 @@
+.launch {
+    width: 500px;
+
+    @media screen and (max-width: 1008px) {
+        width: 300px;
+    }
+
+    @media screen and (max-width: 486px) {
+        width: 240px;
+    }
+}
+
+#head {
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#arm {
+    transform-origin: top;
+    transform-box: fill-box;
+    transform-style: preserve-3d;
+}

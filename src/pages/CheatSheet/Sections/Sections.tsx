@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { ERoute, SECTIONS } from "../../../../constants";
+import { ERoute, SECTIONS } from "../../../constants";
 import "./Sections.scss";
 
 interface ISectionsProps {

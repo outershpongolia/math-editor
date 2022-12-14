@@ -1,6 +1,7 @@
 import React from "react";
+import { IIcon } from "../interfaces";
 
-interface IEllipseProps {
+interface IEllipseProps extends IIcon {
     id: string
     width: string
     height: string
@@ -8,10 +9,10 @@ interface IEllipseProps {
     diameter: string
 }
 
-export const Ellipse: React.FC<IEllipseProps> = ({ id, width, height, view, diameter }) => {
+export const Ellipse: React.FC<IEllipseProps> = ({ className, id, width, height, view, diameter }) => {
     return (
         <svg
-            className="ellipse"
+            className={className}
             id={id}
             width={width}
             height={height}
