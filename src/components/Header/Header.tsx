@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from "react";
-import { MenuList } from "../MenuList/MenuList";
 import "./Header.scss";
+
+// Components
 import { Atom } from "../Animations/Atom/Atom";
+import { MenuList } from "../MenuList/MenuList";
 
 interface IHeaderProps {}
 

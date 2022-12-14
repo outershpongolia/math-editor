@@ -11,10 +11,6 @@
     &__section {
         width: 50%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
         transition: .8s;
 
         @media screen and (max-width: 664px) {

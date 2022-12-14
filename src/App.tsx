@@ -1,13 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import { GraphBoard } from './components/pages/PracticeBoard/GraphBoard/GraphBoard';
-import { Header } from './components/Header/Header';
-import { CheatSheet } from './components/pages/CheatSheet/CheatSheet';
-import { Formulas } from './components/pages/CheatSheet/Formulas/Formulas';
-import { Homepage } from './components/pages/Homepage/Homepage';
-import { PracticeBoard } from './components/pages/PracticeBoard/PracticeBoard';
-import { Whiteboard } from './components/pages/PracticeBoard/Whiteboard/Whiteboard';
 import { ERoute } from './constants';
+
+// Components
+import { Header } from './components/Header/Header';
+
+// Pages
+import { GraphBoard } from './pages/PracticeBoard/GraphBoard/GraphBoard';
+import { CheatSheet } from './pages/CheatSheet/CheatSheet';
+import { Formulas } from './pages/CheatSheet/Formulas/Formulas';
+import { Homepage } from './pages/Homepage/Homepage';
+import { PracticeBoard } from './pages/PracticeBoard/PracticeBoard';
+import { Whiteboard } from './pages/PracticeBoard/Whiteboard/Whiteboard';
 
 function App() {
   return (

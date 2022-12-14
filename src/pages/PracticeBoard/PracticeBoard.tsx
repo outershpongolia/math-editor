@@ -1,7 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { ERoute } from "../../../constants";
+import { ERoute } from "../../constants";
 import './PracticeBoard.scss';
+
+// Components
+import { Link } from "../../components/Link/Link";
 
 interface IPracticeBoardProps {}
 
@@ -9,21 +11,19 @@ export const PracticeBoard: React.FC<IPracticeBoardProps> = () => {
 
     return (
         <div className="practice-board">
-
-            <NavLink 
+            <Link
                 className="practice-board__section"
-                to={ERoute.WHITEBOARD}
+                route={ERoute.WHITEBOARD}
             >
                 <div className="practice-board__section-title">Whiteboard</div>
-            </NavLink>
+            </Link> 
 
-            <NavLink 
+            <Link
                 className="practice-board__section"
-                to={ERoute.GRAPH}
+                route={ERoute.GRAPH}
             >
                 <div className="practice-board__section-title">Graph</div>
-            </NavLink>
-
+            </Link> 
         </div>
     )
 }

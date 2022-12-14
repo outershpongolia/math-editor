@@ -1,20 +1,19 @@
-import anime, { AnimeInstance } from "animejs";
-import React, { useEffect, useRef } from "react";
+import anime from "animejs";
+import React, { useEffect } from "react";
 import { SOLAR_SYSTEM } from "../../../constants";
-import { Ellipse } from "./Ellipse/Ellipse";
 import "./SolarSystem.scss";
+
+// Icons
+import { Ellipse } from "../../../svg/EllipseIcon";
 
 interface ISolarSystemProps {}
 
 export const SolarSystem: React.FC<ISolarSystemProps> = () => {
-
-    const animationRef = useRef<AnimeInstance>()
-    
     useEffect(() => {
         SOLAR_SYSTEM.map(planet => {
             const path = anime.path(`#${planet.planet} circle`);
 
-            animationRef.current = anime({
+            anime({
                 targets: `.${planet.planet}`,
                 translateX: path("x"),
                 translateY: path("y"),
@@ -41,6 +40,7 @@ export const SolarSystem: React.FC<ISolarSystemProps> = () => {
                     >
 
                         <Ellipse 
+                            className="ellipse"
                             id={planet.planet}
                             view={planet.view} 
                             diameter={planet.diameter} 

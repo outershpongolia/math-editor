@@ -1,6 +1,8 @@
 import React from "react";
-import { SolarSystem } from "../../Animations/SolarSystem/SolarSystem";
 import "./Homepage.scss";
+
+// Components
+import { SolarSystem } from "../../components/Animations/SolarSystem/SolarSystem";
 
 interface IHomepageProps {}
 

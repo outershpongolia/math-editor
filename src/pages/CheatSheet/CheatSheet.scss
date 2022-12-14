@@ -1,0 +1,14 @@
+.cheatsheet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    padding: 64px 20px 32px 20px;
+
+    &__text {
+        color: var(--characters);
+        font-size: 14px;
+    }
+}

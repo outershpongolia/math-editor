@@ -1,12 +1,14 @@
 import React, { useCallback, useState } from "react";
-import { DEFAULT_AXIS, DEFAULT_DATA, DEFAULT_LABEL, GRAPH_TYPES } from "../../../../constants";
-import { IAxis, IAxisLabel, IDataType, IGraphType, TGraphType } from "../../../../interfaces";
-import { addElementToAxis, convertStringToFloat } from "../../../../utils";
-import { AxisInput } from "../../../Axis/AxisInput/AxisInput";
-import { Button } from "../../../Button/Button";
-import { Graph } from "../../../Graph/Graph";
-import { TypeOption } from "../../../TypeOption/TypeOption";
 import "./GraphBoard.scss";
+import { DEFAULT_AXIS, DEFAULT_DATA, DEFAULT_LABEL, GRAPH_TYPES } from "../../../constants";
+import { IAxis, IAxisLabel, IDataType, IGraphType, TGraphType } from "../../../interfaces";
+import { addElementToAxis, convertStringToFloat } from "../../../utils";
+
+// Components
+import { AxisInput } from "../../../components/AxisInput/AxisInput";
+import { Button } from "../../../components/Button/Button";
+import { Graph } from "../../../components/Graph/Graph";
+import { TypeOption } from "../../../components/TypeOption/TypeOption";
 
 interface IGraphBoardProps {}
 
